@@ -17,7 +17,7 @@ end
 class RspecCommandError < StandardError; end
 
 class Autotest::Rspec < Autotest
-  
+
   SPEC_PROGRAM = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'bin', 'spec'))
 
   def initialize
@@ -38,7 +38,7 @@ class Autotest::Rspec < Autotest
 
   def make_test_cmd(files_to_test)
     files_to_test.empty? ? '' :
-      "#{ruby} #{SPEC_PROGRAM} --autospec #{normalize(files_to_test).keys.flatten.join(' ')} #{add_options_if_present}"
+      "spec #{files_to_test.keys.flatten.join(' ')} #{add_options_if_present}"
   end
 
   def normalize(files_to_test)
